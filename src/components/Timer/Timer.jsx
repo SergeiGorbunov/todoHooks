@@ -5,8 +5,9 @@ const addZero = (num) => {
   const str = num.toString()
   return str.length > 1 ? str : `0${str}`
 }
+
 function Timer({ timerUpdate, id, completed, timer }) {
-  const [timerRun, setTimerRun] = useState(true)
+  const [timerRun, setTimerRun] = useState(false)
 
   const interval = useRef(null)
 
@@ -16,11 +17,6 @@ function Timer({ timerUpdate, id, completed, timer }) {
       clearInterval(interval.current)
     }
   }, [timerRun])
-
-  useEffect(() => {
-    setTimerRun(!completed)
-  }, [completed])
-
   const min = useMemo(() => addZero(new Date(timer).getMinutes()), [timer])
   const sec = useMemo(() => addZero(new Date(timer).getSeconds()), [timer])
 

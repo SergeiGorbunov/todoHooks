@@ -32,7 +32,7 @@ const initialState = {
       description: 'Go to smoke',
       inputValue: 'Go to smoke',
       created: Date.now(),
-      timer: 1000,
+      timer: 0,
     },
   },
   allIds: [1, 2, 3],
